@@ -1,0 +1,72 @@
+/* CSS declarations go here */
+body {
+	padding-top: 3em;
+	background: url(../noisy_grid.png) repeat;
+}
+.mainbg {
+	background: #fff;
+	padding: 3em;
+}
+.login-link-text, .login-link-text:hover {
+	color:#000;
+}
+
+.loginButton {
+	padding-top: 0.5em;
+}
+
+.highlight {
+	color: #00CCEA;
+}
+.view_company:hover {
+	cursor: pointer;
+}
+.inThumbnail {
+	margin: 2em;
+}
+.thumbnail:hover {
+	-webkit-box-shadow: 0px 0px 5px 1px #0088cc;
+	box-shadow: 0px 0px 3px 1px #0088cc;
+}
+
+.paddings{
+	padding: 2em 6em;
+}
+
+.round {
+	width: 30em;
+	height:20em;
+}
+.top-marg {
+	margin-top: 3em;
+}
+.footer {
+	position: relative;
+  	margin-top: -10em; /* negative value of footer height */
+  	height: 11em;
+  	clear:both;
+  	padding-top:20px;
+  	background: #5c5c5c;
+  	color: #fff;
+  	width: 100%;
+}
+#wrap {
+  min-height: 100%;
+}
+
+#main {
+  overflow:auto;
+  padding-bottom:13em; /* this needs to be bigger than footer height*/
+}
+.fees {
+	margin:0.5em;
+}
+#msg_text {
+	width:100%;
+}
+.alert {
+	display: none;
+}
+.visible {
+	display: block;
+}

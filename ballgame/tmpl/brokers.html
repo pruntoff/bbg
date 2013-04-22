@@ -1,0 +1,227 @@
+<template name="brokersList">
+	<div class="page-header">
+		<h1>Брокеры <small>мы знаем в них толк</small></h1>
+	</div>
+	<div class="span8">
+	{{#each companies}}
+		{{>company}}
+	{{/each}}
+	</div>
+
+	<div  class="span3" style="margin-top: -1.5em;">
+		<h4>Что за рейтинги?</h3>
+		<p>Тут говорится, что мы самые крутые ребята на свете! и вообще, нам и рбк завидуют и все-все все! Тут говорится, что мы самые крутые ребята на свете! и вообще, нам и рбк завидуют и все-все все!Тут говорится, что мы самые крутые ребята на свете! и вообще, нам и рбк завидуют и все-все все!</p>
+	</div>
+	
+</template>
+
+<template name="company">
+	<ul class="thumbnails span12">
+		<li class="span12 view_company thumbnail">
+			<div class="span3">
+				<img src="{{logo}}" width="64px" class="pull-left inThumbnail img-rounded" />
+			</div>
+			<div class="span9 text-center">
+				<h2>{{name}} <sup><span class="label label-success fees"> {{rating}} </span></sup></h2>
+				<div class="span7">
+					Комиссии: <span class="label label-success fees"> {{fees.first}} </span><span class="label label-warning fees"> {{fees.second}} </span><span class="label label-important fees"> {{fees.third}} </span><br />
+					Торговые площадки: <small class="text-error">{{boardsMain}}</small><br />
+					Минимальный депозит: {{minDeposit}}
+				</div>
+				<div class="span4">
+					<p>
+						Web: {{#if service.software.web}}
+								<span class="label label-success fees"> Есть </span>
+							{{else}}
+								<span class="label label-important fees"> Нет </span>
+							{{/if}}
+						<br />
+						Stand Along: {{#if service.software.standalong}}
+								<span class="label label-success fees"> Есть </span>
+							{{else}}
+								<span class="label label-important fees"> Нет </span>
+							{{/if}}
+					</p>
+				</div>
+			</div>
+		</li>
+	</ul>
+</template>
+
+<template name="brokerInfo">
+	{{#with brokerArr}}
+	
+	<div class="page-header">
+		<h1><img src="{{logo}}" style="align: left; margin-right: 0.3em"> {{ name }}<sup><span class="label label-success">{{rating}}</span></sup> <span class="pull-right"  style="font-size:50%; margin-top: 3em;">Тел: {{contacts.phone1}}</span></h1>
+	</div>
+	
+	<div class="row-fluid">
+		<div class="span8">
+
+			<div class="span12">
+				<h4>Подключенные площадки</h4>
+				<br/>
+				<table class="table table-striped">
+					<tbody>
+						<tr>
+							<td><strong>Российские площадки</strong></td>
+							<td>
+								{{#if boardsRUS}}
+									{{boardsRUS}}
+								{{else}}
+									<span class="label label-important">Нет</span>
+								{{/if}}
+							</td>
+						</tr>
+
+						<tr>
+							<td><strong>Зарубежные площадки</strong></td>
+							<td>
+								{{#if boardsFOR}}
+									{{boardsFOR}}
+								{{else}}
+									<span class="label label-important">Нет</span>
+								{{/if}}
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+
+		<h4>Сервисы</h4>
+		<p>{{{service.description}}}</p>
+		<br />
+		<div class="row-fluid">
+			<div class="span6">
+				<table class="table table-striped">
+					<tr>
+						<td><strong>Рекомендация к счету</strong></td>
+						<td>{{capital.volume}}</td>
+					</tr>
+
+					<tr>
+						<td><strong>Оборотный капитал</strong></td>
+						<td>{{capital.turnover}}</td>
+					</tr>
+				</table>
+			</div>
+			<div class="span6">
+				<table class="table table-striped">
+					<tr>
+						<td><strong>Web приложение</strong></td>
+						<td>
+							{{#if service.software.web}}
+								{{service.software.webApp}}
+							{{else}}
+								<span class="label label-important">Нет</span>
+							{{/if}}
+						</td>
+					</tr>
+
+					<tr>
+						<td><strong>Десктоп приложение</strong></td>
+						<td>
+							{{#if service.software.standalong}}
+								{{service.software.standalongApp}}
+							{{else}}
+								<span class="label label-important">Нет</span>
+							{{/if}}
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+			<h4>О брокере</h4>
+			<p>{{{description}}}</p>
+		
+		</div>
+		<div class="span4">
+			<h3>Тарифы<sup>*</sup></h3>
+			<table class="table table-striped">
+				<tbody>
+				<tr>
+					<td>
+						<strong>Оборот</strong>
+					</td>
+					<td>
+						<strong>Тарифный план</strong>
+					</td>
+				</tr>
+
+				<tr>
+					<td>
+						{{fees.firstVolume}}
+					</td>
+					<td>
+						{{fees.first}}%
+					</td>
+				</tr>
+
+				<tr>
+					<td>
+						{{fees.secondVolume}}
+					</td>
+					<td>
+						{{fees.second}}%
+					</td>
+				</tr>
+
+				<tr>
+					<td>
+						{{fees.thirdVolume}}
+					</td>
+					<td>
+						{{fees.third}}%
+					</td>
+				</tr>
+				</tbody>
+			</table>
+			<sup>*</sup><small>здесь представленны основные тарифы для физ. лиц, более подробная информация по тарифам и тарифным планам сайте брокера <a href="{{fees.feesPage}}">{{site}}</a></small>
+		</div>
+
+		<div class="span4">
+			<h3>Контакты</h3>
+			<table class="table table-striped">
+				<tbody>
+				<tr>
+					<td>
+						<strong>Телефон</strong>
+					</td>
+					<td>
+						{{contacts.phone1}}
+						<br /> {{contacts.phone2}}
+					</td>
+				</tr>
+
+				<tr>
+					<td>
+						<strong>email</strong>
+					</td>
+					<td>
+						<a href="mailto:{{contacts.email}}">{{contacts.email}}
+					</td>
+				</tr>
+
+				<tr>
+					<td>
+						<strong>Адрес</strong>
+					</td>
+					<td>
+						{{contacts.adress}}
+					</td>
+				</tr>
+
+				<tr>
+					<td>
+						<strong>Сайт</strong>
+					</td>
+					<td>
+						<a href="{{site}}">{{site}}</a>
+					</td>
+				</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	{{/with}}
+</template>
