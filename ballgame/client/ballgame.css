@@ -70,3 +70,7 @@ body {
 .visible {
 	display: block;
 }
+.no_decor, .no_decor:hover {
+	text-decoration: none;
+	color: black;
+}
