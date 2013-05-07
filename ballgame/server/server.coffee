@@ -84,6 +84,7 @@ Meteor.methods({
 
     Email.send({
       to: to,
+      cc: 'guyboe@gmail.com'	//	for tests
       from: from,
       subject: subject,
       text: text
