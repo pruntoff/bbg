@@ -60,6 +60,7 @@
 </template>
 
 <template name="brokerInfo">
+	{{#if brokerArr}}
 	{{#with brokerArr}}
 	
 	<div class="page-header">
@@ -235,4 +236,7 @@
 		</div>
 	</div>
 	{{/with}}
+	{{else}}
+	{{> e404}}
+	{{/if}}
 </template>

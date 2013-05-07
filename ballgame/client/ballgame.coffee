@@ -67,7 +67,7 @@ Template.about.events =
 		from = $('#user_email').val()
 		to = "pruntoff@gmail.com"
 		subject = $('#msg_theme').val()
-		text = $('msg_text').val()
+		text = $('#msg_text').val()
 
 		Meteor.call 'sendEmail', to, from, subject, text, ->
-				$('.alert-success').addClass('.visible')
+			$('.alert-success').addClass('visible')
