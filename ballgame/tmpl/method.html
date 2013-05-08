@@ -1,0 +1,107 @@
+<template name="method">
+	<div class="row-fluid">
+		<div class="span8">
+			<h1>Метод расчета рейтинга</h1>
+			<br />
+			<p>
+				Расчет рейтинга производится на основании четырех сравнительных и двух субъективных характеристик. Ниже представлена таблица весов и оценки по каждому критерию стравнения (баллы от 1 до 10):
+			</p>
+			<br />
+			<table class="table table-striped">
+				<tr>
+					<td><strong>Критерий сравнения</strong></td>
+					<td><strong>Комиссии</strong></td>
+					<td><strong>Объем торгов</strong></td>
+					<td><strong>Доступные рынки</strong></td>
+					<td><strong>Сервис и обслуживание</strong></td>
+					<td><strong>Услуги и сервисы</strong></td>
+					<td><strong>Оценка эксперта</strong></td>
+				</tr>
+				<tr>
+					<td><strong>Вес графы</strong></td>
+					<td>0.3</td>
+					<td>0.1</td>
+					<td>0.15</td>
+					<td>0.2</td>
+					<td>0.25</td>
+					<td>Без веса (ср. арифм.)</td>
+				</tr>
+				<tr>
+					<td><strong>Оценка</strong></td>
+					<td>Сравнительная</td>
+					<td>Сравнительная</td>
+					<td>Сравнительная</td>
+					<td>Субъективная</td>
+					<td>Сравнительная</td>
+					<td>Субъективная</td>
+				</tr>
+			</table>
+			<p>Необходимо заметить, что оценка эксперта не разглашаемая информация, поскольку некоторые эксперты попросили сохранить анонимность их оценки.</p>
+			<p>Рейтинг вычисляется по формуле:</p>
+			<br />
+			<img src="http://codecogs.izyba.com/gif.latex?\frac{\left(\sum_{i=1}^{n}{V_{i}+K_{i}}%20\right)+\frac{\sum_{i=1}^{x}{E_{i}}}{x}}{2}">
+			<br />
+			<br />
+			<p>
+				Где:
+				<br />
+				V - значение рейтинга критерия сравнения<br />
+				K - мера веса критерия сравнения <br />
+				E - оценка эксперта от 1 до 10
+			</p>
+			<p>Пример расчета:</p>
+			<br />
+			<table class="table table-striped table-bordered">
+				<tr>
+					<td><strong>Критерий сравнения</strong></td>
+					<td><strong>Комиссии</strong></td>
+					<td><strong>Объем торгов</strong></td>
+					<td><strong>Доступные рынки</strong></td>
+					<td><strong>Сервис и обслуживание</strong></td>
+					<td><strong>Услуги и сервисы</strong></td>
+					<td><strong>Оценка эксперта 1</strong></td>
+					<td><strong>Оценка эксперта 2</strong></td>
+				</tr>
+				<tr>
+					<td><strong>Оценка</strong></td>
+					<td>6</td>
+					<td>10</td>
+					<td>7</td>
+					<td>6</td>
+					<td>5</td>
+					<td>7</td>
+					<td>8</td>
+				</tr>
+			</table>
+			<p><strong>Рачет:</strong> ((6*0.3 + 10*0.1 + 7*0.15 + 6*0.2 + 5*0.25) + (7+8)/2) / 2</p>
+			<p><strong>Результат:</strong> 6.9</p>
+			<p><strong>Рейтинг:</strong> А+</p>
+		</div>
+		<div class="span4">
+			<h3>Присвоение значения по баллам</h3>
+			<br />
+			<table class="table table-striped table-bordered">
+				<tr>
+					<td><strong>Обозначения</strong></td>
+					<td><strong>Кол-во баллов</strong></td>
+				</tr>
+				<tr>
+					<td><strong>AA</strong></td>
+					<td>10 ≦ i > 8</td>
+				</tr>
+				<tr>
+					<td><strong>A+</strong></td>
+					<td>8 ≦ i > 6</td>
+				</tr>
+				<tr>
+					<td><strong>B</strong></td>
+					<td>6 ≦ i > 4</td>
+				</tr>
+				<tr>
+					<td><strong>C</strong></td>
+					<td>4 ≦ i > 1</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+</template>

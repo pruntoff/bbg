@@ -4,6 +4,7 @@ ballgameRouter = Backbone.Router.extend
 	routes:
 		''						: 'home'
 		'about'					: 'about'
+		'method'				: 'method'
 		'room'					: 'room'
 		'ranking'				: 'ranking'
 		':company_id'			: 'brokerInfo'
@@ -13,6 +14,9 @@ ballgameRouter = Backbone.Router.extend
 
 	about: ->
 		Session.set 'page', 'about'
+
+	method: ->
+		Session.set 'page', 'method'
 
 	ranking: (company_id) ->
 		Session.set 'page', 'ranking'

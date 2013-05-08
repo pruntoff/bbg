@@ -26,6 +26,7 @@
       							<ul class="nav">
   									<li><a href="/">Главная</a></li>
   									<li><a href="/ranking">Рейтинг брокеров</a></li>
+                    <li><a href="/method">Метод расчета</a></li>
                     <li><a href="/about">О компании</a></li>
   									{{#if currentUser}}
   										<li><a href="/room">Кабинет</a></li>
@@ -94,6 +95,10 @@
 
   {{#if currentPage "about"}}
     {{> about }}
+  {{/if}}
+
+  {{#if currentPage "method"}}
+    {{> method }}
   {{/if}}
 
   {{> analytics }}
