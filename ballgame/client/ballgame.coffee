@@ -1,4 +1,4 @@
-Brokers = new Meteor.Collection "brokers"
+@Brokers = new Meteor.Collection "brokers"
 
 ballgameRouter = Backbone.Router.extend
 	routes:
